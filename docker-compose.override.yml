@@ -1,0 +1,24 @@
+
+services:
+  scheduler:
+    volumes:
+      - C:\Users\admin\AppData\Roaming\gcloud\application_default_credentials.json:/usr/local/airflow/gcloud/application_default_credentials.json:ro
+    environment:
+      AIRFLOW__SECRETS__BACKEND: "airflow.providers.google.cloud.secrets.secret_manager.CloudSecretManagerBackend"
+      AIRFLOW__SECRETS__BACKEND_KWARGS: '{"connections_prefix": "airflow-connections", "variables_prefix": "airflow-variables", "project_id": "projects-482900"}'
+      GOOGLE_CLOUD_PROJECT: "projects-482900"
+  api-server:
+    volumes:
+      - C:\Users\admin\AppData\Roaming\gcloud\application_default_credentials.json:/usr/local/airflow/gcloud/application_default_credentials.json:ro
+    environment:
+      AIRFLOW__SECRETS__BACKEND: "airflow.providers.google.cloud.secrets.secret_manager.CloudSecretManagerBackend"
+      AIRFLOW__SECRETS__BACKEND_KWARGS: '{"connections_prefix": "airflow-connections", "variables_prefix": "airflow-variables", "project_id": "projects-482900"}'
+      GOOGLE_CLOUD_PROJECT: "projects-482900"
+  triggerer:
+    volumes:
+      - C:\Users\admin\AppData\Roaming\gcloud\application_default_credentials.json:/usr/local/airflow/gcloud/application_default_credentials.json:ro
+    environment:
+      AIRFLOW__SECRETS__BACKEND: "airflow.providers.google.cloud.secrets.secret_manager.CloudSecretManagerBackend"
+      AIRFLOW__SECRETS__BACKEND_KWARGS: '{"connections_prefix": "airflow-connections", "variables_prefix": "airflow-variables", "project_id": "projects-482900"}'
+      GOOGLE_CLOUD_PROJECT: "projects-482900"
+      
